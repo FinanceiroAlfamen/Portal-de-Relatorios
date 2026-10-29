@@ -1,0 +1,7 @@
+# Publicar somente os arquivos de entrega
+*
+!.gitignore
+!index.html
+!README.md
+!links-relatorios.json
+!.nojekyll
