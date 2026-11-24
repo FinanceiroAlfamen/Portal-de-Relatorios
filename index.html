@@ -105,11 +105,11 @@
 (() => {
   const setting = new URLSearchParams(location.search).get('orbitas');
   const key = 'alfamen-portal-orbitas';
-  let enabled = setting === 'ativar';
+  let enabled = setting !== 'padrao';
   try {
-    if (enabled) localStorage.setItem(key, 'ativas');
-    if (setting === 'padrao') localStorage.removeItem(key);
-    enabled = localStorage.getItem(key) === 'ativas';
+    if (setting === 'ativar') localStorage.setItem(key, 'ativas');
+    if (setting === 'padrao') localStorage.setItem(key, 'sistema');
+    if (setting === null) enabled = localStorage.getItem(key) !== 'sistema';
   } catch {}
   document.documentElement.classList.toggle('orbits-enabled', enabled);
 })();
